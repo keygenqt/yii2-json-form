@@ -1,0 +1,39 @@
+.yii2-json-form .empty {
+    display: none;
+}
+.yii2-json-form .block {
+    font-size: 0;
+    padding-bottom: 10px;
+}
+.yii2-json-form .form-control {
+    width: 44%;
+    display: inline-block;
+    vertical-align: top;
+}
+.yii2-json-form .spinner {
+    width: 1%;
+    display: inline-block;
+}
+.yii2-json-form .btn-danger, .yii2-json-form .btn-success {
+    width: 10%;
+    vertical-align: top;
+}
+.yii2-json-form .add-block {
+    text-align: right;
+}
+@media (max-width: 570px) {
+    .yii2-json-form .form-control {
+        width: 41%;
+    }
+    .yii2-json-form .btn-danger, .yii2-json-form .btn-success {
+        width: 16%;
+    }
+}
+@media (max-width: 420px) {
+    .yii2-json-form .form-control {
+        width: 35%;
+    }
+    .yii2-json-form .btn-danger, .yii2-json-form .btn-success {
+        width: 28%;
+    }
+}

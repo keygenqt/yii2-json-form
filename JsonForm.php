@@ -11,6 +11,9 @@ class JsonForm extends Widget
 
     public function run()
     {
+        FontAwesomeAsset::register($this->getView());
+        ActiveAssets::register($this->getView());
+
         return  $this->getView()->render('@keygenqt/jsonForm/views/view', ['widget' => $this]);
     }
 }

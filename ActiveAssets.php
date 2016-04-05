@@ -1,6 +1,6 @@
 <?php
 
-namespace keygenqt\autocompleteAjax;
+namespace keygenqt\jsonForm;
 
 use \yii\web\AssetBundle;
 

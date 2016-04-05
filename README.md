@@ -1,7 +1,7 @@
 yii2-json-form
 ===================
 
-sdfds
+Json form edit for yii2
 
 ## Installation
 
@@ -26,13 +26,7 @@ The latest version of the module is v0.5.0 `BETA`.
 View:
 
 ```php
-
-```
-
-Controller:
-
-```php
-
+<?= $form->field($model, 'json_text')->widget(JsonForm::classname()) ?>
 ```
 
 ## License

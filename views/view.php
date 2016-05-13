@@ -43,6 +43,4 @@
         <div class="btn btn-success"><i class="fa fa-plus-square"></i></div>
     </div>
 
-    <?= Html::activeHiddenInput($widget->model, $widget->attribute) ?>
-
 </div>

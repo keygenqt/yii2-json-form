@@ -10,6 +10,7 @@ class JsonForm extends Widget
     public $model;
     public $attribute;
     public $array = false;
+    public $unique = true;
 
     public $placeholder = [
         'key' => '',

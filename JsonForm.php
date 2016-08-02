@@ -9,6 +9,12 @@ class JsonForm extends Widget
 {
     public $model;
     public $attribute;
+    public $array = false;
+
+    public $placeholder = [
+        'key' => '',
+        'value' => '',
+    ];
 
     public function run()
     {
@@ -18,7 +24,7 @@ class JsonForm extends Widget
         return  $this->getView()->render('@keygenqt/jsonForm/views/view', ['widget' => $this]);
     }
 
-    public static function getJson($array)
+    public static function parseArrayToJson($array)
     {
         $result = [];
         if (isset($array['key'])) {

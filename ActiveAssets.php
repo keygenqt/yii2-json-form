@@ -11,10 +11,6 @@ class ActiveAssets extends AssetBundle
 {
 	public $sourcePath = '@keygenqt/jsonForm/assets';
 
-	public $js = [
-		'js/yii2-json-form.js'
-	];
-
 	public $depends = [
 		'yii\web\JqueryAsset'
 	];

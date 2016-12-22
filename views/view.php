@@ -70,7 +70,8 @@
                 .clone()
                 .addClass('block')
                 .removeClass('empty')
-                .insertBefore('#<?= $widget->getId() ?> .add-block');
+                .insertBefore('#<?= $widget->getId() ?> .add-block')
+                .find('input:first-child').val($('#<?= $widget->getId() ?>').find('.block').length-1);
         });
         <?php if (!$widget->array): ?>
             function addslashes(string) {

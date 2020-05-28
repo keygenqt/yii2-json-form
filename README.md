@@ -1,5 +1,8 @@
-yii2-json-form
+Json Form
 ===================
+
+![GitHub](https://img.shields.io/github/license/keygenqt/yii2-json-form)
+![Packagist Downloads](https://img.shields.io/packagist/dt/keygenqt/yii2-json-form)
 
 Json form edit for yii2
 
@@ -17,10 +20,6 @@ Either add
 
 of your `composer.json` file.
 
-## Latest Release
-
-The latest version of the module is v0.5.0 `BETA`.
-
 ## Usage
 
 View:
@@ -28,9 +27,3 @@ View:
 ```php
 <?= $form->field($model, 'json_text')->widget(JsonForm::classname()) ?>
 ```
-
-## License
-
-**yii2-json-form** is released under the BSD 3-Clause License. See the bundled `LICENSE.md` for details.
-
-

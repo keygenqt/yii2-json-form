@@ -4,14 +4,14 @@
 	"keywords": ["yii2", "extension", "widget", "json", "jquery", "plugin"],
 	"homepage": "https://github.com/keygenqt/yii2-json-form",
 	"type": "yii2-extension",
-	"license": "BSD-3-Clause",
-	"version":"0.5.0",
+	"license": "Apache-2.0",
+	"version":"1.0.0",
 	"authors": [
 		{
-		  "name": "Vitaliy Zarubin",
-		  "email": "keygenqt@gmail.com",
-		  "homepage": "http://keygenqt.ru/",
-		  "role": "Developer"
+			"name": "Vitaliy Zarubin",
+			"email": "dev@keygenqt.com",
+			"homepage": "http://keygenqt.com/",
+			"role": "Developer"
 		}
 	],
 	"require": {

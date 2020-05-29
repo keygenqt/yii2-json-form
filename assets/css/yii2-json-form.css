@@ -21,19 +21,35 @@
 .yii2-json-form .add-block {
     text-align: right;
 }
-@media (max-width: 570px) {
-    .yii2-json-form .form-control {
-        width: 41%;
-    }
-    .yii2-json-form .btn-danger, .yii2-json-form .btn-success {
-        width: 16%;
-    }
+.yii2-json-form .btn {
+    min-height: inherit;
 }
-@media (max-width: 420px) {
-    .yii2-json-form .form-control {
-        width: 35%;
+.has-error .yii2-json-form .add-block .btn {
+    border: 1px solid #F82A5A;
+}
+form .form-group.has-error-json .block input:first-child {
+    border: 1px solid #F82A5A;
+}
+form .form-group.has-error.has-error-json .block input:last-child {
+    border: 1px solid #CCCCCC;
+}
+@media (max-width: 660px) {
+    .form-group .yii2-json-form .btn {
+        width: inherit;
     }
-    .yii2-json-form .btn-danger, .yii2-json-form .btn-success {
-        width: 28%;
+    .yii2-json-form .form-control {
+        width: 100%;
+    }
+    .yii2-json-form .spinner {
+        display: none;
+    }
+    form .yii2-json-form input:last-child {
+        border-top: none !important;
+    }
+    .yii2-json-form .btn {
+        margin-top: 5px;
+    }
+    .yii2-json-form .add-block .btn {
+        margin-top: 0;
     }
 }

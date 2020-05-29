@@ -1,17 +1,17 @@
 <?php
-    /* @var $widget keygenqt\jsonForm\JsonForm */
+/* @var $widget keygenqt\jsonForm\JsonForm */
 
-    use \yii\helpers\Html;
-    use \yii\helpers\BaseHtml;
+use \yii\helpers\Html;
+use \yii\helpers\BaseHtml;
 
-    try {
-        $values = \yii\helpers\Json::decode($widget->model->{$widget->attribute});
-    } catch (\yii\base\InvalidParamException $ex) {
-        $values = [];
-    }
-    if (empty($values)) {
-        $values = [];
-    }
+try {
+    $values = \yii\helpers\Json::decode($widget->model->{$widget->attribute});
+} catch (\yii\base\InvalidParamException $ex) {
+    $values = [];
+}
+if (empty($values)) {
+    $values = [];
+}
 
 ?>
 
@@ -54,16 +54,16 @@
 
 </div>
 
-<?php if (!$widget->array): ?>
-    <?= Html::activeHiddenInput($widget->model, $widget->attribute); ?>
-<?php endif; ?>
+<?= Html::activeHiddenInput($widget->model, $widget->attribute); ?>
 
 <script>
-    $(function() {
-        $('#<?= $widget->getId() ?>').on('click', '.btn-danger', function() {
+    $(function () {
+        $('#<?= $widget->getId() ?>').on('click', '.btn-danger', function () {
             $(this).closest('.block').remove();
         });
-        $('#<?= $widget->getId() ?> .btn-success').click(function() {
+        $('#<?= $widget->getId() ?> .btn-success').click(function () {
+            $(this).closest('.form-group').removeClass('has-error')
+
             $(this)
                 .closest('#<?= $widget->getId() ?>')
                 .find('.empty')
@@ -71,35 +71,42 @@
                 .addClass('block')
                 .removeClass('empty')
                 .insertBefore('#<?= $widget->getId() ?> .add-block')
-                .find('input:first-child').val($('#<?= $widget->getId() ?>').find('.block').length-1);
-        });
-        <?php if (!$widget->array): ?>
-            function addslashes(string) {
-                return string.replace(/"/g, '\\"');
-            }
-            $('#<?= $widget->getId() ?>').closest('form').submit(function() {
-                var blocks = $(this).find('#<?= $widget->getId() ?> .block');
-                var text = '';
-                for (var i = 0; i<blocks.length; i++) {
-                    var inputs = $(blocks[i]).find('input');
-                    if ($(inputs[0]).val() == '') {
-                        continue;
-                    }
-                    <?php if ($widget->unique): ?>
-                        text += '"' + addslashes($(inputs[0]).val()) + '": "' + addslashes($(inputs[1]).val()) + '",';
-                    <?php else: ?>
-                        text += '{"key": "' + addslashes($(inputs[0]).val()) + '", "value": "' + addslashes($(inputs[1]).val()) + '"},';
-                    <?php endif; ?>
-                }
-
-                <?php if ($widget->unique): ?>
-                    text = (text == '' ? '{}' : "{" + text.substr(0, text.length-1) + '}');
-                <?php else: ?>
-                    text = (text == '' ? '[]' : "[" + text.substr(0, text.length-1) + ']');
+                <?php if ($widget->autoincrement): ?>
+                .find('input:first-child').val($('#<?= $widget->getId() ?>').find('.block').length - 1);
                 <?php endif; ?>
+        });
 
-                $('#<?= BaseHtml::getInputId($widget->model, $widget->attribute) ?>').val(text);
-            });
-        <?php endif; ?>
+        function addslashes(string) {
+            return string.replace(/"/g, '\\"');
+        }
+
+        $('#<?= $widget->getId() ?>').closest('form').submit(function () {
+            var blocks = $(this).find('#<?= $widget->getId() ?> .block');
+            var text = '';
+            for (var i = 0; i < blocks.length; i++) {
+                var inputs = $(blocks[i]).find('input');
+                if ($(inputs[0]).val() == '') {
+                    continue;
+                }
+                text += '"' + addslashes($(inputs[0]).val()) + '": "' + addslashes($(inputs[1]).val()) + '",';
+            }
+            text = (text == '' ? '' : "{" + text.substr(0, text.length - 1) + '}');
+
+            if (text != '') {
+                var count = 0;
+                var obj = JSON.parse(text);
+                for (var key in obj) {
+                    count++;
+                }
+                if (count != blocks.length) {
+                    $('#<?= BaseHtml::getInputId($widget->model, $widget->attribute) ?>').closest('.form-group').addClass('has-error-json')
+                    return false;
+                } else {
+                    $('#<?= BaseHtml::getInputId($widget->model, $widget->attribute) ?>').closest('.form-group').removeClass('has-error-json')
+                }
+                $('#<?= BaseHtml::getInputId($widget->model, $widget->attribute) ?>').val(JSON.stringify(obj));
+            }
+
+        });
     });
 </script>

@@ -1,10 +1,10 @@
-Json Form
+[Json Form](http://keygenqt.com/work/yii2-json-form)
 ===================
 
 ![GitHub](https://img.shields.io/github/license/keygenqt/yii2-json-form)
 ![Packagist Downloads](https://img.shields.io/packagist/dt/keygenqt/yii2-json-form)
 
-Json form edit for yii2
+Modification json object in form
 
 ## Installation
 
@@ -25,5 +25,11 @@ of your `composer.json` file.
 View:
 
 ```php
-<?= $form->field($model, 'json_text')->widget(JsonForm::classname()) ?>
+<?= $form->field($model, 'json')->widget(JsonForm::class, [
+    'autoincrement' => true,
+    'placeholder' => [
+        'key' => 'Object key',
+        'value' => 'Object value (optional)',
+    ],
+]) ?>
 ```

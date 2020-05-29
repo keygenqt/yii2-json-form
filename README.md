@@ -26,11 +26,11 @@ View:
 
 ```php
 <?= $form->field($model, 'json')->widget(JsonForm::class, [
-        'order' => false,
-        'autoincrement' => true,
-        'placeholder' => [
-                'key' => 'Object key',
-                'value' => 'Object value (optional)',
-        ],
+    'order' => false,
+    'autoincrement' => true,
+    'placeholder' => [
+        'key' => 'Object key',
+        'value' => 'Object value (optional)',
+    ],
 ]) ?>
 ```

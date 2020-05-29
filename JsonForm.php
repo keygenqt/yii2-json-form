@@ -24,6 +24,7 @@ class JsonForm extends Widget
 {
     public $model;
     public $attribute;
+    public $order = false;
     public $autoincrement = true;
     public $placeholder = [
         'key' => '',

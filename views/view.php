@@ -73,7 +73,7 @@ if (empty($values)) {
                 .insertBefore('#<?= $widget->getId() ?> .add-block')
                 <?php if ($widget->autoincrement): ?>
                 .find('input:first-child').val($('#<?= $widget->getId() ?>').find('.block').length - 1);
-                <?php endif; ?>
+            <?php endif; ?>
         });
 
         function addslashes(string) {
@@ -104,7 +104,12 @@ if (empty($values)) {
                 } else {
                     $('#<?= BaseHtml::getInputId($widget->model, $widget->attribute) ?>').closest('.form-group').removeClass('has-error-json')
                 }
+
+                <?php if ($widget->order): ?>
                 $('#<?= BaseHtml::getInputId($widget->model, $widget->attribute) ?>').val(JSON.stringify(obj));
+                <?php else: ?>
+                $('#<?= BaseHtml::getInputId($widget->model, $widget->attribute) ?>').val(text);
+                <?php endif; ?>
             }
 
         });
